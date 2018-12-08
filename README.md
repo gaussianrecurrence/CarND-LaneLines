@@ -6,10 +6,22 @@
 [pipeline]: ./resources/pipeline.jpg "Pipeline"
 [laneLineRoi]: ./resources/generalLaneLinePipeline.jpg "Lane Line Pipeline"
 [getLaneState]: ./resources/getLaneState.jpg "getLaneState"
+[src_solidWhiteCurve]: ./test_images/solidWhiteCurve.jpg "src_solidWhiteCurve"
+[result_solidWhiteCurve]: ./test_images_output/solidWhiteCurve.jpg "result_solidWhiteCurve"
+[src_solidWhiteRight]: ./test_images/solidWhiteRight.jpg "src_solidWhiteRight"
+[result_solidWhiteRight]: ./test_images_output/solidWhiteRight.jpg "result_solidWhiteRight"
+[src_solidYellowCurve]: ./test_images/solidYellowCurve.jpg "src_solidYellowCurve"
+[result_solidYellowCurve]: ./test_images_output/solidYellowCurve.jpg "result_solidYellowCurve"
+[src_solidYellowCurve2]: ./test_images/solidYellowCurve2.jpg "src_solidYellowCurve2"
+[result_solidYellowCurve2]: ./test_images_output/solidYellowCurve2.jpg "result_solidYellowCurve2"
+[src_solidYellowLeft]: ./test_images/solidYellowLeft.jpg "src_solidYellowLeft"
+[result_solidYellowLeft]: ./test_images_output/solidYellowLeft.jpg "result_solidYellowLeft"
+[src_whiteCarLaneSwitch]: ./test_images/whiteCarLaneSwitch.jpg "src_whiteCarLaneSwitch"
+[result_whiteCarLaneSwitch]: ./test_images_output/whiteCarLaneSwitch.jpg "result_whiteCarLaneSwitch"
 
 ### Reflection
 
-### 1. Here is how my pipeline work
+#### 1. Pipeline
 
 While analyzing the problem I noticed that each lane line lays on each image half, so in order to avoid unnecessary noise I wen't for a approach in which the pipeline is executed once per each lane line (image half). So instead of defining ROI shaped as a truncated pyramid, I defined 2 ROIs, one each the half of a pyramid, just as can be seen here:
 
@@ -21,10 +33,11 @@ Here can be seen the pipeline at a general level:
 
 ![Pipeline][pipeline]
 
-* First of I take original image and convert it into grayscale **(1)**
-* Later I darken those areas in the image with a brightness below a threshold **(2)**
-* Following I apply Canny algorithm **(3)**
-* On this point I pass to the specific pipeline for each of the lane line ROIs
+* First of I take original image and convert it into grayscale. **(1)**
+* Later I darken those areas in the image with a brightness below a threshold. **(2)**
+* Following I apply Canny algorithm. **(3)**
+* On this point I pass to the specific pipeline for each of the lane line ROIs.
+
 ---
 Here can be seen the specific pipeline for each lane line ROI:
 
@@ -41,6 +54,7 @@ Here can be seen the specific pipeline for each lane line ROI:
 * I obtain the weighted moving average of the lane line: **(4)**
   * As can be seen each line in the buffer has its weight. In this case the more recent the lane line detection is the higher the weight is.
 * Lastly I draw the resulting line. **(5)**
+
 ---
 Here can be seen a deeper view of getLaneState:
 
@@ -57,17 +71,39 @@ Here can be seen a deeper view of getLaneState:
 * After that: **(6)**
   * If there were segments left after filtering then and I have a valid average, return the points average.
   * Otherwise return **None**.
-  
 
-### 2. Some possible issues
-
+---
+#### 2. Some possible issues
 
 One problem this pipeline has is that is not reliable under poor illumination conditions.
 
-
-### 3. Further work
+---
+#### 3. Further work
 
 * Try a Kalman filter to model slope so as distance change.
 * Get rid of the CV algorithm and use a proper DL model to limit the drivable areas for each lane.
 
+---
 ### Results
+
+
+#### Images
+Original image             |  Result
+:-------------------------:|:-------------------------:
+![solidWhiteCurve.jpg][src_solidWhiteCurve]  |  ![Result of solidWhiteCurve.jpg][result_solidWhiteCurve]
+![solidWhiteRight.jpg][src_solidWhiteRight]  |  ![Result of solidWhiteRight.jpg][result_solidWhiteRight]
+![solidYellowCurve.jpg][src_solidYellowCurve]  |  ![Result of solidYellowCurve.jpg][result_solidYellowCurve]
+![solidYellowCurve2.jpg][src_solidYellowCurve2]  |  ![Result of solidYellowCurve2.jpg][result_solidYellowCurve2]
+![solidYellowLeft.jpg][src_solidYellowLeft]  |  ![Result of solidYellowLeft.jpg][result_solidYellowLeft]
+![whiteCarLaneSwitch.jpg][src_whiteCarLaneSwitch]  |  ![Result of whiteCarLaneSwitch.jpg][result_whiteCarLaneSwitch]
+
+---
+#### Videos
+Original video             |  Result
+:-------------------------:|:-------------------------:
+![solidWhiteRight.mp4](./test_videos/solidWhiteRight.mp4)  |  ![Result of solidWhiteRight.mp4](./test_videos_output/solidWhiteRight.mp4)
+
+<video controls="controls">
+  <source type="video/mp4" src="./test_videos/solidWhiteRight.mp4"></source>
+  <p>Your browser does not support the video element.</p>
+</video>
