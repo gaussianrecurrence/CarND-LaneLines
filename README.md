@@ -101,9 +101,6 @@ Original image             |  Result
 #### Videos
 Original video             |  Result
 :-------------------------:|:-------------------------:
-![solidWhiteRight.mp4](./test_videos/solidWhiteRight.mp4)  |  ![Result of solidWhiteRight.mp4](./test_videos_output/solidWhiteRight.mp4)
-
-<video controls="controls">
-  <source type="video/mp4" src="./test_videos/solidWhiteRight.mp4"></source>
-  <p>Your browser does not support the video element.</p>
-</video>
+[solidWhiteRight.mp4](./test_videos/solidWhiteRight.mp4) |  [solidWhiteRight.mp4](./test_videos_output/solidWhiteRight.mp4)
+[solidYellowLeft.mp4](./test_videos/solidYellowLeft.mp4) |  [solidYellowLeft.mp4](./test_videos_output/solidYellowLeft.mp4)
+[challenge.mp4](./test_videos/challenge.mp4) |  [challenge.mp4](./test_videos_output/challenge.mp4)
