@@ -17,7 +17,8 @@ The goals / steps of this project are the following:
 
 ### 1. Here is how my pipeline work
 
-I notice that each lane line lays on each image half, so in order to avoid unnecessary noise I wen't for a approach in which the pipeline is executed once per each lane line (image half). So instead of defining ROI shaped as a truncated pyramid, I defined 2 ROIs, one each the half of a pyramid, just as can be seen here:
+While analyzing the problem I noticed that each lane line lays on each image half, so in order to avoid unnecessary noise I wen't for a approach in which the pipeline is executed once per each lane line (image half). So instead of defining ROI shaped as a truncated pyramid, I defined 2 ROIs, one each the half of a pyramid, just as can be seen here:
+
 ![Lane lines ROIs][laneRois]
 
 I run the pipeline once for the area colored in blue and once for the area colored in purple.
