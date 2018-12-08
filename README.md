@@ -1,5 +1,6 @@
-
 # **Finding Lane Lines on the Road** 
+[![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
+
 [//]: # (Image References)
 
 [laneRois]: ./resources/LaneLinesROIs.jpg "Lane line ROIs"
@@ -18,6 +19,35 @@
 [result_solidYellowLeft]: ./test_images_output/solidYellowLeft.jpg "result_solidYellowLeft"
 [src_whiteCarLaneSwitch]: ./test_images/whiteCarLaneSwitch.jpg "src_whiteCarLaneSwitch"
 [result_whiteCarLaneSwitch]: ./test_images_output/whiteCarLaneSwitch.jpg "result_whiteCarLaneSwitch"
+[vsrc_solidWhiteRight]: ./resources/src_solidWhiteRight.gif "vsrc_solidWhiteRight"
+[vresult_solidWhiteRight]: ./resources/result_solidWhiteRight.gif "vresult_solidWhiteRight"
+[vsrc_solidYellowLeft]: ./resources/src_solidYellowLeft.gif "vsrc_solidYellowLeft"
+[vresult_solidYellowLeft]: ./resources/result_solidYellowLeft.gif "vresult_solidYellowLeft"
+[vsrc_challenge]: ./resources/src_challenge.gif "vsrc_challenge"
+[vresult_challenge]: ./resources/result_challenge.gif "vresult_challenge"
+
+### Results
+
+#### Videos
+Original video             |  Result
+:-------------------------:|:-------------------------:
+![solidWhiteRight.mp4][vsrc_solidWhiteRight]  |  ![Result of solidWhiteRight.mp4][vresult_solidWhiteRight]
+![solidYellowLeft.mp4][vsrc_solidYellowLeft]  |  ![Result of solidYellowLeft.mp4][vresult_solidYellowLeft]
+![challenge.mp4][vsrc_challenge]  |  ![Result of challenge.mp4][vresult_challenge]
+
+---
+
+#### Images
+Original image             |  Result
+:-------------------------:|:-------------------------:
+![solidWhiteCurve.jpg][src_solidWhiteCurve]  |  ![Result of solidWhiteCurve.jpg][result_solidWhiteCurve]
+![solidWhiteRight.jpg][src_solidWhiteRight]  |  ![Result of solidWhiteRight.jpg][result_solidWhiteRight]
+![solidYellowCurve.jpg][src_solidYellowCurve]  |  ![Result of solidYellowCurve.jpg][result_solidYellowCurve]
+![solidYellowCurve2.jpg][src_solidYellowCurve2]  |  ![Result of solidYellowCurve2.jpg][result_solidYellowCurve2]
+![solidYellowLeft.jpg][src_solidYellowLeft]  |  ![Result of solidYellowLeft.jpg][result_solidYellowLeft]
+![whiteCarLaneSwitch.jpg][src_whiteCarLaneSwitch]  |  ![Result of whiteCarLaneSwitch.jpg][result_whiteCarLaneSwitch]
+
+---
 
 ### Reflection
 
@@ -82,25 +112,3 @@ One problem this pipeline has is that is not reliable under poor illumination co
 
 * Try a Kalman filter to model slope so as distance change.
 * Get rid of the CV algorithm and use a proper DL model to limit the drivable areas for each lane.
-
----
-### Results
-
-
-#### Images
-Original image             |  Result
-:-------------------------:|:-------------------------:
-![solidWhiteCurve.jpg][src_solidWhiteCurve]  |  ![Result of solidWhiteCurve.jpg][result_solidWhiteCurve]
-![solidWhiteRight.jpg][src_solidWhiteRight]  |  ![Result of solidWhiteRight.jpg][result_solidWhiteRight]
-![solidYellowCurve.jpg][src_solidYellowCurve]  |  ![Result of solidYellowCurve.jpg][result_solidYellowCurve]
-![solidYellowCurve2.jpg][src_solidYellowCurve2]  |  ![Result of solidYellowCurve2.jpg][result_solidYellowCurve2]
-![solidYellowLeft.jpg][src_solidYellowLeft]  |  ![Result of solidYellowLeft.jpg][result_solidYellowLeft]
-![whiteCarLaneSwitch.jpg][src_whiteCarLaneSwitch]  |  ![Result of whiteCarLaneSwitch.jpg][result_whiteCarLaneSwitch]
-
----
-#### Videos
-Original video             |  Result
-:-------------------------:|:-------------------------:
-[solidWhiteRight.mp4](./test_videos/solidWhiteRight.mp4) |  [solidWhiteRight.mp4](./test_videos_output/solidWhiteRight.mp4)
-[solidYellowLeft.mp4](./test_videos/solidYellowLeft.mp4) |  [solidYellowLeft.mp4](./test_videos_output/solidYellowLeft.mp4)
-[challenge.mp4](./test_videos/challenge.mp4) |  [challenge.mp4](./test_videos_output/challenge.mp4)
